@@ -152,7 +152,8 @@ def login():
                 supabase.auth.sign_up({"email": email, "password": pwd})
                 st.sidebar.success("注册成功，请登录")
             except:
-                st.sidebar.error("注册失败")
+                Exception as e:
+                st.sidebar.error(f"注册失败: {e}")
 
 if "user" not in st.session_state:
     login()
